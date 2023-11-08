@@ -8,6 +8,7 @@ let gameOver = false;
 let userPiece;
 let botPiece;
 let gameCells;
+let moves = 0;
 
 window.onload = () => {
     setBoard();
@@ -28,6 +29,7 @@ function setCell(index) {
     if (gameOver) {
         return;
     }
+    ++moves;
     gameCells = document.querySelectorAll(".cell");
     if (gameCells[index].textContent === "") {
         gameCells[index].textContent = userPiece;
@@ -35,6 +37,7 @@ function setCell(index) {
         setPieceSound();
         if (!gameOver) {
             setTimeout(() => {
+                ++moves;
                 botMove();
                 checkWinner();
                 setPieceSound();
@@ -102,6 +105,9 @@ function checkWinner() {
             }
             showResetBtn();
             return; //exit the function
+        } else if (moves === CELLS) {
+            infoTurn.textContent = "Draw!";
+            showResetBtn();
         }
     }
 }
