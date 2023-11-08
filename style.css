@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: "Playpen Sans", cursive;
+    touch-action: manipulation;
+}
+
+:root {
+    --bg-color: #424242;
+    --board-color: #fff;
+    --win-color: #d0a2f7;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.container {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container .player-turn {
+    color: var(--board-color);
+    font-size: 1.65rem;
+}
+
+.gameboard {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#restartGameBtn {
+    padding: 1px 8px;
+    cursor: pointer;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: var(--board-color);
+    border: 1px solid var(--bg-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.win {
+    color: var(--win-color);
+}
